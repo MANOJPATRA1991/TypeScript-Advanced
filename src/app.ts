@@ -33,7 +33,7 @@
 // ---------------------------------------------------------------------------------------- //
 
 /**
- * Exploring “this” with .call, .apply and .bind
+ * EXPLORING 'THIS' WITH CALL, APPLY AND BIND
  */
 
 // // Object literal
@@ -59,3 +59,40 @@
 // // Difference between call and apply is the way the arguments are passed
 // myFunction.call(myObj, 'ABC', 'DEF'); // Changing the this keyword or the context
 // myFunction.apply(myObj, ['ABC', 'DEF']);
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * ARROW FUNCTIONS AND LEXICAL SCOPES
+ */
+
+// class MyClass {
+//     myMethod() {
+//         const foo = 123;
+//         const that = this;
+//         console.log('1', this);
+//         setTimeout(function() {
+//             console.log('2', this);
+//             console.log('3', that);
+//         }, 0);
+//         setTimeout(() => console.log('4', this), 0);
+//     }
+// }
+
+// const myInstance = new MyClass();
+// myInstance.myMethod();
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * TYPING 'THIS' AND NOIMPLICIT THIS
+ */
+
+// const elem = document.querySelector('.click');
+
+// function handleClick(this: HTMLAnchorElement, event: Event) { // Inferring this value in TypeScript, event is the first argument not this
+//     event.preventDefault(); // stops the default action of an element from happening.
+//     console.log(this.className);
+// }
+
+// elem.addEventListener('click', handleClick, false);
