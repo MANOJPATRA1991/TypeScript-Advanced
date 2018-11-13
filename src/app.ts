@@ -117,3 +117,49 @@
 
 // // JavaScript
 // // typeof person // 'object'
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * keyof INDEX TYPE QUERIES
+ */
+
+// const person = {
+//     name: 'Manoj',
+//     age: 27
+// };
+
+// type Person = typeof person;
+// type PersonKeys = keyof Person; // type will be "name" | "age"
+// type PersonTypes = Person[PersonKeys]; // type will be string | number
+
+// const anotherPerson: Person = {
+//     name: 'Mike',
+//     age: 30
+// };
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * keyof, GENERICS and LOOKUP TYPES
+ */
+
+// const person = {
+//     name: 'Manoj',
+//     age: 27
+// };
+
+// type Person = typeof person;
+// type PersonKeys = keyof Person; // type will be "name" | "age"
+// type PersonTypes = Person[PersonKeys]; // type will be string | number
+
+// function getProperty<T, K extends keyof T>(obj: T, key: K) {
+//     return obj[key];
+// }
+
+// const personName = getProperty(person, 'name');
+
+// const anotherPerson: Person = {
+//     name: 'Mike',
+//     age: 30
+// };
