@@ -96,3 +96,24 @@
 // }
 
 // elem.addEventListener('click', handleClick, false);
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * typeof TYPE QUERIES
+ */
+
+// const person = {
+//     name: 'Manoj',
+//     age: 27
+// };
+
+// type Person = typeof person;
+
+// const anotherPerson: Person = {
+//     name: 'Mike',
+//     age: 30
+// };
+
+// // JavaScript
+// // typeof person // 'object'
