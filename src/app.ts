@@ -163,3 +163,48 @@
 //     name: 'Mike',
 //     age: 30
 // };
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * MAPPED TYPES
+ */
+
+// Transforming one type to another type
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * readonly MAPPED TYPES
+ */
+
+// interface Person {
+//     name: string;
+//     age: number;
+// }
+
+// // interface ReadOnlyPerson {
+// //     readonly name: string;
+// //     readonly age: number;
+// // }
+
+// const person: Person = {
+//     name: 'Todd',
+//     age: 27
+// };
+
+// type MyReadonly<T> = {
+//     readonly [P in keyof T]: T[P]
+// };
+
+// // The object person is immutable not its properties
+// person.name = 'ABC';
+
+// function freeze<T>(obj: T): MyReadonly<T> {
+//     // Return a readonly version of person object
+//     return Object.freeze(obj);
+// }
+
+// const newPerson = freeze(person);
+
+// // newPerson.age = 100; // newPerson's age is a readonly property
