@@ -305,7 +305,7 @@
 
 // let dictionary: Record<string, TrackStates> = {};
 
-// // If interface is not available, we could have done something as below:
+// // If interface is not available, we could have done stringOrArray as below:
 // // let dictionary: Record<string, typeof item> = {};
 
 // interface TrackStates {
@@ -698,3 +698,34 @@
 // anotherList.addItem(new Coupon('PIZZA25'));
 
 // const coupons = anotherList.getList();
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * FUNCTION OVERLOADS
+ */
+
+// // Helpful with creating utility functions which are pure functions
+// // that generate a different data structure or data set based on
+// // the arguments provided
+
+// // Functions with different declarations are not compilation purposes,
+// // but instead for type-checking purpose
+
+// function reverse(str: string): string;
+// function reverse<T>(arr: T[]): T[];
+
+// function reverse<T>(stringOrArray: string | T[]): string | T[] {
+//     if (typeof stringOrArray === 'string') {
+//         return stringOrArray
+//             .split('')
+//             .reverse()
+//             .join('');
+//     }
+
+//     // Avoid mutating the array as arrays are passed by reference
+//     return stringOrArray.slice().reverse();
+// }
+
+// reverse('Pepperoni');
+// reverse(['bacon', 'pepperoni', 'chilli', 'mushrooms']);
