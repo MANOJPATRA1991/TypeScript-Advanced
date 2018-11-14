@@ -755,3 +755,33 @@
 // const selectedSize = 2;
 
 // console.log(Sizes[selectedSize]);
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * STRING ENUMS AND INLINING MEMBERS
+ */
+
+// // No reverse mapping happens here
+// enum Sizes {
+//     Small = 'small',
+//     Medium = 'medium',
+//     Large = 'large'
+// }
+
+// // Inline members
+// const enum Sizes {
+//     Small = 'small',
+//     Medium = 'medium',
+//     Large = 'large'
+// }
+
+// let selected: Sizes = Sizes.Small;
+
+// function updateSize(size: Sizes): void {
+//     selected = size;
+// }
+
+// updateSize(Sizes.Large);
+
+// console.log(selected);
