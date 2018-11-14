@@ -209,31 +209,37 @@
 
 // // newPerson.age = 100; // newPerson's age is a readonly property
 
+// ---------------------------------------------------------------------------------------- //
+
 /**
  * partial Mapped Types
  */
 
-interface Person {
-    name: string;
-    age: number;
-}
-
-// interface PartialPerson {
-//     name?: string;
-//     age?: number;
+// interface Person {
+//     name: string;
+//     age: number;
 // }
 
-type MyPartial<T> = {
-    [P in keyof T]?: T[P]
-}
+// // interface PartialPerson {
+// //     name?: string;
+// //     age?: number;
+// // }
 
-function updatePerson(obj: Person, prop: MyPartial<Person>) {
-    return {...obj, ...prop};
-}
+// type MyPartial<T> = {
+//     [P in keyof T]?: T[P]
+// }
 
-const person: Person = {
-    name: 'Todd',
-    age: 27
-};
+// function updatePerson(obj: Person, prop: MyPartial<Person>) {
+//     return {...obj, ...prop};
+// }
 
-updatePerson(person, { name: 'ABC' });
+// const person: Person = {
+//     name: 'Todd',
+//     age: 27
+// };
+
+// updatePerson(person, { name: 'ABC' });
+
+
+
+
