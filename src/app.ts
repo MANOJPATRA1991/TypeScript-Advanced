@@ -540,3 +540,63 @@
 // };
 
 // const assigned = Object.assign({}, order, orderCard);
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * DISCRIMINATED [TAGGED] UNIONS
+ */
+
+// interface Order {
+//     id: string;
+//     amount: number;
+//     currency: string;
+// }
+
+// interface Stripe extends Order {
+//     type: 'stripe';
+//     card: string;
+//     cvc: string;
+// }
+
+// interface PayPal {
+//     type: 'paypal';
+//     email: string;
+// }
+
+// // Intersection Type
+// type CheckoutCard = Order & Stripe;
+// type CheckoutPayPal = Order & PayPal;
+// // type CheckoutABC = Order & { name: string };
+
+// const order: Order = {
+//     id: 'xj28s',
+//     amount: 100,
+//     currency: 'USD'
+// };
+
+// const orderCard: CheckoutCard = {
+//     ...order,
+//     type: 'stripe',
+//     card: '1000 2000 3000 4000',
+//     cvc: '123'
+// };
+
+// const orderPayPal: CheckoutPayPal = {
+//     ...order,
+//     type: 'paypal',
+//     email: 'abc@def.com'
+// };
+
+// type Payload = CheckoutCard | CheckoutPayPal;
+
+// // Discriminating the types with a common property
+// function checkout(payload: Payload) {
+//     if (payload.type === 'stripe') {
+//         console.log(payload.card, payload.cvc);
+//     }
+    
+//     if (payload.type === 'paypal') {
+//         console.log(payload.email);
+//     }
+// }
