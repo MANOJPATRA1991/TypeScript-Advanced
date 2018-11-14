@@ -636,3 +636,27 @@
 // }
 
 // console.log(newArtist.getSongs());
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * INTERFACES VS. CLASSES
+ */
+
+// // Decision on which one to use depends on 
+// // whether we just want to provide type-checking
+// // or we want to provide implementation details
+
+// // interface Artist {
+// //     name: string;
+// // }
+
+// class ArtistCreator /*implements Artist*/ {
+//     constructor(public name: string) {}
+// }
+
+// function artistFactory({ name }: ArtistCreator) {
+//     return new ArtistCreator(name);
+// }
+
+// artistFactory({ name: 'Manoj' });
