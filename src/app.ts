@@ -274,4 +274,23 @@
 // const age = printAge(person);
 // console.log(age);
 
+// ---------------------------------------------------------------------------------------- //
 
+/**
+ * pick MAPPED TYPES
+ */
+
+// interface Person {
+//     name: string;
+//     age: number;
+//     address: {};
+// }
+
+// type MyPick<T, K extends keyof T> = {
+//     [P in K]: T[P]
+// };
+
+// const person: MyPick<Person, 'name' | 'age'> = {
+//     name: 'Manoj',
+//     age: 27
+// };
