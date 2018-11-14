@@ -453,3 +453,39 @@
 //     // Playlist
 //     return item.name;
 // }
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * Literal TYPE GUARDS and "in" operator
+ */
+
+// // const foo = 'bar'; // Literal type foo: 'bar'
+// // const foo: string = 'bar'; // string type
+
+// // Does window object has a property named localStorage
+// const exists = 'localStorage' in window;
+
+// class Song {
+//     kind: 'song'; // literal type Song.kind: 'song'
+//     constructor(public title: string, public duration: number) {}
+// }
+
+// class Playlist {
+//     kind: 'playlist'; // literal type Playlist.kind: 'playlist'
+//     constructor(public name: string, public songs: Song[]) {}
+// }
+
+// function isSong(item: any): item is Song {
+//     return 'title' in item;
+// }
+
+// function getItemName(item: Song | Playlist) {
+//     // if (isSong(item)) {
+//     if(item.kind === 'song') { // using a literal type to infer the type
+//         return item.title // Song
+//     }
+
+//     // Playlist
+//     return item.name;
+// }
