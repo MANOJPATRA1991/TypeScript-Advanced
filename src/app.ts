@@ -321,4 +321,59 @@
 // // Numbers are coerced to String
 // dictionary[0] = item;
 
+// ---------------------------------------------------------------------------------------- //
 
+/**
+ * TYPE GUARDS
+ */
+
+// It's a way we can get hold of type information after making
+// a check inside a conditional statement.
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * typeof and TYPE GUARDS
+ */
+
+// function foo(bar: string | number) {
+//     if (typeof bar === 'string') {
+//         // string
+//         return bar.toUpperCase();
+//     }
+//     // number
+//     // if (typeof bar === 'number') {
+//     //     // number
+//     //     return bar.toFixed(2);
+//     // }
+//     return bar.toFixed(2);
+// }
+
+// class Song {
+//     constructor(public title: string, public duration: string | number) {}
+
+// }
+
+// function getSongDuration(item: Song) {
+//     if (typeof item.duration === 'string') {
+//         // item.duration is a string
+//         return item.duration;
+//     }
+//     //item.duration is a number
+//     const { duration } = item;
+//     const minutes = Math.floor(duration / 60000);
+//     const seconds = (duration / 1000) % 60;
+//     return `${minutes}:${seconds}`;
+// }
+
+// const songDurationFromString = getSongDuration(
+//     new Song('Wonderful Song', '05:31')
+// );
+
+// console.log(songDurationFromString);
+
+// const songDurationFromMS = getSongDuration(
+//     new Song('Wonderful Song', 330000)
+// );
+
+// console.log(songDurationFromMS);
