@@ -240,6 +240,38 @@
 
 // updatePerson(person, { name: 'ABC' });
 
+// ---------------------------------------------------------------------------------------- //
 
+/**
+ * required MAPPED TYPES
+ */
+
+// interface Person {
+//     name: string;
+//     age?: number;
+// }
+
+// type MyRequired<T> = {
+//     // Remove the question mark which denotes property is optional to make it required
+//     [P in keyof T]-?: T[P]
+    
+//     // required and readonly
+//     // +readonly [P in keyof T]-?: T[P]
+    
+//     // required but not readonly
+//     // -readonly [P in keyof T]-?: T[P]
+// }
+
+// function printAge(person: MyRequired<Person>) {
+//     return `${person.name} is ${person.age}`;
+// }
+
+// const person: MyRequired<Person> = {
+//     name: 'Manoj',
+//     age: 27
+// };
+
+// const age = printAge(person);
+// console.log(age);
 
 
