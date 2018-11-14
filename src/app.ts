@@ -803,3 +803,16 @@
 // });
 
 // _.log('Hello!');
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * EMITTING DECLARATION FILES FROM tsc
+ */
+
+// Declaration files describe the project structure
+
+export class Foo {
+    constructor(public name: string) {}
+    bar(age: number) {}
+}
