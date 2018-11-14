@@ -600,3 +600,39 @@
 //         console.log(payload.email);
 //     }
 // }
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * INTERFACES VS. TYPE ALIASES
+ */
+
+// // Interfaces are preferred for data structures and similar things
+// // but type alias can be used when we want to simply define types
+
+// interface Item {
+//     name: string;
+// }
+
+// // Preferred way as much easier to use
+// interface Artist extends Item {
+//     songs: number;
+// }
+
+// // Merge interfaces when interfaces with same name exist
+// interface Artist {
+//     getSongs(): number;
+// }
+
+// // We cannot extend things with type as we can with interface
+// type Artist2 = { name: string } & Item;
+
+// const newArtist: Artist = {
+//     name: 'Manoj',
+//     songs: 5,
+//     getSongs() {
+//         return this.songs;
+//     }
+// }
+
+// console.log(newArtist.getSongs());
