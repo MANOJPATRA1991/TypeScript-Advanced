@@ -729,3 +729,29 @@
 
 // reverse('Pepperoni');
 // reverse(['bacon', 'pepperoni', 'chilli', 'mushrooms']);
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * NUMERIC ENUMS AND REVERSE MAPPINGS
+ */
+
+// // An Enum is a data type that compiles down to JS code.
+// // By default, we get numeric values from Enum.
+
+// enum Sizes {
+//     Small,
+//     Medium,
+//     Large
+// };
+
+// // Extending Sizes enum
+// enum Sizes {
+//     ExtraLarge = 3,
+// }
+
+// console.log(Sizes.Medium, Sizes[1], Sizes[Sizes.Medium]); // 1 'Medium' 'Medium'
+
+// const selectedSize = 2;
+
+// console.log(Sizes[selectedSize]);
