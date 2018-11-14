@@ -377,3 +377,50 @@
 // );
 
 // console.log(songDurationFromMS);
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * instanceof and TYPE GUARDS
+ */
+
+// class Foo {
+//     bar() {}
+// }
+
+// // Will compile in ES5 as follows:
+// // function Foo2() {}
+// // Foo2.prototype.bar = function() {};
+
+// const bar = new Foo();
+
+// //true
+// // bar is an instance of Foo
+// console.log(Object.getPrototypeOf(bar) === Foo.prototype);
+// console.log(bar instanceof Foo);
+
+// class Song {
+//     constructor(public title: string, public duration: number) {}
+// }
+
+// class Playlist {
+//     constructor(public name: string, public songs: Song[]) {}
+// }
+
+// function getItemName(item: Song | Playlist) {
+//     if (item instanceof Song) {
+//         return item.title // Song
+//     }
+
+//     // Playlist
+//     return item.name;
+// }
+
+// const songName = getItemName(new Song('Wonderful Song', 300000));
+// console.log('Song name: ', songName);
+
+// const playlistName = getItemName(new Playlist(
+//     'The Best Songs', 
+//     [new Song('The Man', 300000)]));
+
+// console.log('Playlist name: ', playlistName);
