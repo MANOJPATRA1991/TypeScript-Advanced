@@ -294,3 +294,31 @@
 //     name: 'Manoj',
 //     age: 27
 // };
+
+// ---------------------------------------------------------------------------------------- //
+
+/**
+ * record MAPPED TYPES
+ */
+
+// // let dictionary: { [key: string]: any } = {};
+
+// let dictionary: Record<string, TrackStates> = {};
+
+// // If interface is not available, we could have done something as below:
+// // let dictionary: Record<string, typeof item> = {};
+
+// interface TrackStates {
+//     current: string;
+//     next: string;
+// }
+
+// const item: Record<keyof TrackStates, string> = {
+//     current: 'js02js9',
+//     next: '8nlksjsk'
+// };
+
+// // Numbers are coerced to String
+// dictionary[0] = item;
+
+
