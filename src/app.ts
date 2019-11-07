@@ -6,7 +6,7 @@
 
 // // Function
 // function myFunction() {
-//     console.log('Function:::', this);
+//     console.log('Function:::', this); -> "this" refers to Window object
 // }
 
 // myFunction();
@@ -14,7 +14,7 @@
 // // Object literal
 // const myObj = {
 //     myMethod() {
-//         console.log('Object:::', this);
+//         console.log('Object:::', this); -> "this" refers to myObj
 //     }
 // };
 
@@ -23,7 +23,7 @@
 // // Classses
 // class MyClass {
 //     myMethod() {
-//         console.log('Class:::', this);
+//         console.log('Class:::', this); -> "this" refers to MyClass instance
 //     }
 // }
 
@@ -47,7 +47,7 @@
 
 // // Function
 // function myFunction(...text: string[]) {
-//     console.log('Function:::', this, text);
+//     console.log('Function:::', this, text); // "text" is an array
 // }
 
 // // const bindFunction = myFunction.bind(myObj, 'ABC', 'DEF');
@@ -57,8 +57,10 @@
 // bindFunction('ABC', 'DEF');
 
 // // Difference between call and apply is the way the arguments are passed
+// // C -> call, C // comma-separated arguments
 // myFunction.call(myObj, 'ABC', 'DEF'); // Changing the this keyword or the context
-// myFunction.apply(myObj, ['ABC', 'DEF']);
+// A -> apply, A // array of arguments
+// myFunction.apply(myObj, ['ABC', 'DEF']); // Changing the this keyword or the context
 
 // ---------------------------------------------------------------------------------------- //
 
@@ -70,12 +72,12 @@
 //     myMethod() {
 //         const foo = 123;
 //         const that = this;
-//         console.log('1', this);
-//         setTimeout(function() {
-//             console.log('2', this);
-//             console.log('3', that);
+//         console.log('1', this); // MyClass instance
+//         setTimeout(function() { // function creates new scope
+//             console.log('2', this); // Window object
+//             console.log('3', that); // MyClass instance
 //         }, 0);
-//         setTimeout(() => console.log('4', this), 0);
+//         setTimeout(() => console.log('4', this), 0); // MyClass instance
 //     }
 // }
 
@@ -86,11 +88,12 @@
 
 /**
  * TYPING 'THIS' AND NOIMPLICIT THIS
+ * add "noImplicitThis": true to tsconfig.json for type check on "this"
  */
 
 // const elem = document.querySelector('.click');
 
-// function handleClick(this: HTMLAnchorElement, event: Event) { // Inferring this value in TypeScript, event is the first argument not this
+// function handleClick(this: HTMLAnchorElement, event: Event) { // Inferring "this" value in TypeScript, "event" is the first argument not "this"
 //     event.preventDefault(); // stops the default action of an element from happening.
 //     console.log(this.className);
 // }
@@ -100,7 +103,7 @@
 // ---------------------------------------------------------------------------------------- //
 
 /**
- * typeof TYPE QUERIES
+ * "typeof" TYPE QUERIES
  */
 
 // const person = {
@@ -121,7 +124,7 @@
 // ---------------------------------------------------------------------------------------- //
 
 /**
- * keyof INDEX TYPE QUERIES
+ * "keyof" INDEX TYPE QUERIES
  */
 
 // const person = {
@@ -129,8 +132,8 @@
 //     age: 27
 // };
 
-// type Person = typeof person;
-// type PersonKeys = keyof Person; // type will be "name" | "age"
+// type Person = typeof person; // type will be { name: string, age: number }
+// type PersonKeys = keyof Person; // type will be "name" | "age" -> string literals
 // type PersonTypes = Person[PersonKeys]; // type will be string | number
 
 // const anotherPerson: Person = {
@@ -153,6 +156,7 @@
 // type PersonKeys = keyof Person; // type will be "name" | "age"
 // type PersonTypes = Person[PersonKeys]; // type will be string | number
 
+// LOOKUP TYPE
 // function getProperty<T, K extends keyof T>(obj: T, key: K) {
 //     return obj[key];
 // }
@@ -183,29 +187,27 @@
 //     age: number;
 // }
 
-// // interface ReadOnlyPerson {
-// //     readonly name: string;
-// //     readonly age: number;
-// // }
-
 // const person: Person = {
 //     name: 'Todd',
 //     age: 27
 // };
 
+// // The object person is immutable not its properties
+// person.name = 'ABC';
+
+/**
+ * Make all properties in T readonly
+ */
 // type MyReadonly<T> = {
 //     readonly [P in keyof T]: T[P]
 // };
-
-// // The object person is immutable not its properties
-// person.name = 'ABC';
 
 // function freeze<T>(obj: T): MyReadonly<T> {
 //     // Return a readonly version of person object
 //     return Object.freeze(obj);
 // }
 
-// const newPerson = freeze(person);
+// const newPerson = freeze(person); // { readonly name: string, readonly age: number }
 
 // // newPerson.age = 100; // newPerson's age is a readonly property
 
@@ -219,11 +221,6 @@
 //     name: string;
 //     age: number;
 // }
-
-// // interface PartialPerson {
-// //     name?: string;
-// //     age?: number;
-// // }
 
 // type MyPartial<T> = {
 //     [P in keyof T]?: T[P]
