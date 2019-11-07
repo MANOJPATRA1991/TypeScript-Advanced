@@ -1,4 +1,4 @@
-# TypeScript Basicss
+# TypeScript Basics
 
 #### Dependency installation
 
